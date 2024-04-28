@@ -12,6 +12,7 @@ public class RestFullBaseUrl {
     public void setUp(){
         spec = new RequestSpecBuilder()
                     .setBaseUri("https://restful-booker.herokuapp.com")
+                    .setContentType(ContentType.JSON)
                     .build();
     }
 }
