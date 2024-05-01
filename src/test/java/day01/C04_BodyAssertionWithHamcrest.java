@@ -16,7 +16,7 @@ public class C04_BodyAssertionWithHamcrest {
     Then
         HTTP Status Code should be 200
     And
-        Response format should be “application/json”
+        PetStoreResponse format should be “application/json”
     And
         “title” is “et itaque necessitatibus maxime molestiae qui quas velit”
     And
@@ -42,7 +42,7 @@ public class C04_BodyAssertionWithHamcrest {
 
         //4. Do Assertion
 //        HTTP Status Code should be 200
-//        Response format should be “application/json”
+//        PetStoreResponse format should be “application/json”
 //        “title” is “et itaque necessitatibus maxime molestiae qui quas velit”
 //        “completed” is false
 //        “userId” is 2

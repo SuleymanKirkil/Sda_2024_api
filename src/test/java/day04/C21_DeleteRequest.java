@@ -16,7 +16,7 @@ public class C21_DeleteRequest extends JsonPlaceHolderBaseUrl {
         I send DELETE Request to the Url
     Then
         Status code is 200
-        And Response body is { }
+        And PetStoreResponse body is { }
 */
     @Test
     public void test(){

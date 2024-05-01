@@ -43,7 +43,7 @@ And
                            }""";
         Map<String,Object> expectedTodo = convertJsonToJava(expectedStr, Map.class);
 
-        // Send Request and Get Response
+        // Send Request and Get PetStoreResponse
         Response response = given(spec).when().get("{first}");
         //response.prettyPrint();
 

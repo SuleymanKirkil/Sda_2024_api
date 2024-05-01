@@ -1,55 +1,55 @@
-package day04;
+package day07;
 
 import base_urls.RestFullBaseUrl;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojos.BookingDatesPojo;
 import pojos.BookingPojo;
-import testdata.RestfulTestData;
 
-import java.util.Map;
-
+import static day07.C31_CreateBooking.bookingid;
 import static io.restassured.RestAssured.given;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class C19_GetRequestNestedPojo extends RestFullBaseUrl {
-
+public class C32_GetBooking extends RestFullBaseUrl {
     /*
     Given
-        https://restful-booker.herokuapp.com/booking/243
+        url: "https://restful-booker.herokuapp.com/booking/1
     When
-        I send GET Request to the url
+        user send GET request
     Then
-        Status code should be 200
-        PetStoreResponse body should be like that;
-            {
-                "firstname": "John",
-                "lastname": "Smith",
-                "totalprice": 111,
-                "depositpaid": true,
-                "bookingdates": {
-                    "checkin": "2018-01-01",
-                    "checkout": "2019-01-01"
-                },
-                "additionalneeds": "Breakfast"
-            }
- */
-    @Test
-    public void test(){
+        verify status code is 200
+    And
+        response is like :
+        {
+    "bookingid": 1,
+    "booking": {
+        "firstname": "Jim",
+        "lastname": "Brown",
+        "totalprice": 111,
+        "depositpaid": true,
+        "bookingdates": {
+            "checkin": "2018-01-01",
+            "checkout": "2019-01-01"
+        },
+        "additionalneeds": "Breakfast"
+    }
+}
+     */
+
+    @Test(dependsOnMethods = {"day07.C31_CreateBooking.createBookingTest"})
+    public void getBookingTest(){
         // Set Url
         spec.pathParams("first","booking"
-        ,"second",451);
+        ,"second", bookingid);
 
-        // Set Expected data
+        // Set Expected Data
         BookingDatesPojo bookingDates = new BookingDatesPojo("2018-01-01","2019-01-01");
-        BookingPojo expectedData = new BookingPojo("John","Smith",111,true,bookingDates,"Breakfast");
+        BookingPojo expectedData = new BookingPojo("Jim","Brown",111,true,bookingDates,"Breakfast");
 
-
-        // Send request get response
+        // Send request and response
         Response response = given(spec).when().get("{first}/{second}");
         response.prettyPrint();
 
-        // Do Assertions
         BookingPojo actualData = response.as(BookingPojo.class);
 
         assertEquals(200,response.statusCode());
@@ -61,6 +61,25 @@ public class C19_GetRequestNestedPojo extends RestFullBaseUrl {
         assertEquals(bookingDates.getCheckin(),actualData.getBookingdates().getCheckin());
         assertEquals(bookingDates.getCheckout(),actualData.getBookingdates().getCheckout());
         assertEquals(expectedData.getAdditionalneeds(),actualData.getAdditionalneeds());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

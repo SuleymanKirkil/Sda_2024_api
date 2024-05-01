@@ -60,7 +60,7 @@ public class HamcrestMAtchersMethods {
             String url ="https://jsonplaceholder.typicode.com/todos";
 
             //ii) Set the Expected Data
-            //iii) Send Request And Get Response
+            //iii) Send Request And Get PetStoreResponse
             Response response = given().accept(ContentType.JSON).when().get(url);
             response.prettyPrint();
 

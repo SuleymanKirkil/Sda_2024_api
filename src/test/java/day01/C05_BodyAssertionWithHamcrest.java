@@ -17,7 +17,7 @@ public class C05_BodyAssertionWithHamcrest {
     Then
         HTTP Status Code should be 200
     And
-        Response format should be "application/json"
+        PetStoreResponse format should be "application/json"
     And
         There should be 200 todos
     And

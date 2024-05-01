@@ -19,7 +19,7 @@ public class C18_GetRequestNestedMap extends RestFullBaseUrl {
         I send GET Request to the url
     Then
         Status code should be 200
-        Response body should be like that;
+        PetStoreResponse body should be like that;
             {
                 "firstname": "John",
                 "lastname": "Smith",

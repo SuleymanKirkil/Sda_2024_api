@@ -20,9 +20,9 @@ public class C03_HeaderAndBodyAssertions {
    And
        Status Line should be HTTP/1.1 404 Not Found
    And
-       Response body contains "Not Found"
+       PetStoreResponse body contains "Not Found"
    And
-       Response body does not contain "Clarusway"
+       PetStoreResponse body does not contain "Clarusway"
    And
        Server is "Cowboy"
 */
@@ -56,7 +56,7 @@ public class C03_HeaderAndBodyAssertions {
             assertEquals("Cowboy",response.header("Server"));
 
 
-//        Response body contains "Not Found"
+//        PetStoreResponse body contains "Not Found"
             String responseStr = response.asString();
             System.out.println("responseStr = " + responseStr);
 
@@ -64,7 +64,7 @@ public class C03_HeaderAndBodyAssertions {
             boolean isEqual = responseStr.equals("Not Found");
             assertTrue(isContain);//If the boolean value between parenthesis is TRUE test will pass
 
-//        Response body does not contain "Clarusway"
+//        PetStoreResponse body does not contain "Clarusway"
             boolean isContainClarusway = responseStr.contains("Clarusway");
             assertFalse(isContainClarusway);//If the boolean value between parenthesis is FALSE test will pass
 

@@ -20,9 +20,9 @@ public class C08_JsonPath extends RestFullBaseUrl {
     Then
         HTTP Status Code should be 200
     And
-        Response content type is “application/json”
+        PetStoreResponse content type is “application/json”
     And
-        Response body should be like;
+        PetStoreResponse body should be like;
         {
             "firstname": "Josh",
             "lastname": "Allen",
@@ -64,7 +64,7 @@ public class C08_JsonPath extends RestFullBaseUrl {
 
 
         //2nd way: By extracting data outside the body with JSONPath
-        //Convert Response to JsonPath object
+        //Convert PetStoreResponse to JsonPath object
         JsonPath json =response.jsonPath();
 
         //Retrieve the desired data by using JsonPath object

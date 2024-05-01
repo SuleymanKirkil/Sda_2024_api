@@ -72,7 +72,7 @@ public class C25_NestedPostObjectMapper extends RestFullBaseUrl {
         BookingPojo payLoad = convertJsonToJava(expectedStr,BookingPojo.class);
 
 
-        // Send request and Get Response
+        // Send request and Get PetStoreResponse
         Response response = given(spec).body(payLoad).when().post("{first}");
         response.prettyPrint();
 

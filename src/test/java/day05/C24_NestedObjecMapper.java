@@ -17,7 +17,7 @@ public class C24_NestedObjecMapper extends RestFullBaseUrl {
         When
             I send GET Request to the url
         Then
-            Response body should be like that;
+            PetStoreResponse body should be like that;
             {
                 "firstname": "Jane",
                 "lastname": "Doe",
@@ -52,7 +52,7 @@ public class C24_NestedObjecMapper extends RestFullBaseUrl {
         ObjectMapper objectMapper = new ObjectMapper();
         BookingPojo expectedData = objectMapper.readValue(expectedStr, BookingPojo.class);
 
-        // Send Request and Get Response
+        // Send Request and Get PetStoreResponse
         Response response = given(spec).when().get("{first}/{second}");
         response.prettyPrint();
 
